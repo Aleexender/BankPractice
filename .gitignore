@@ -1,0 +1,63 @@
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### 추가 항목들 ###
+# 프로젝트 설정 관련 파일
+.idea/
+misc.xml
+uiDesigner.xml
+checkstyle-idea.xml
+
+# Gradle 관련 파일
+gradle-wrapper.properties
+gradle-wrapper.jar
+
+# 바이너리 및 실행 파일
+gradlew
+gradlew.bat
+
+# 빌드 디렉토리
+build/
+
+# JPA Buddy 관련 파일
+jpa-buddy.xml
