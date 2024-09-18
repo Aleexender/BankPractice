@@ -13,8 +13,7 @@ public class BankOperationGuard {
         과연 어떤걸 잡아야하는가? -> BlockingQueue<Account> 로 잡아도 되는가? Runnable로 잡아야하는건가?
         블로킹 큐를 여기에다가 구현하는게 맞는가? -> 맞는거 같긴한데...
      */
-    private final BlockingQueue<Account> queue = new ArrayBlockingQueue<>(3,true);
-    private final BlockingQueue<Long> operationQueue = new ArrayBlockingQueue<>(3, true); // update를 하나만 할수있는 애를 만들어라
+    private final BlockingQueue<Long> operationQueue = new ArrayBlockingQueue<>(5000, true); // update를 하나만 할수있는 애를 만들어라
 
 
     public BankOperationGuard(Bank bank) {
@@ -36,7 +35,6 @@ public class BankOperationGuard {
 
     public void withdraw(String name, long asset) {
         var account = bank.findAccount(name);
-        queue.add(account);
         operationQueue.add(asset);
 
         try {

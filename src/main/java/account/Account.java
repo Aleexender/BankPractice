@@ -16,7 +16,7 @@ public class Account {
         return asset += amount;
     }
 
-    public long withdraw(long amount) {
+    public synchronized long withdraw(long amount) {
         if (this.asset < amount) {
             throw new IllegalArgumentException("low asset");
         }
