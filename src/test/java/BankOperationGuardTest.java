@@ -42,14 +42,12 @@ public class BankOperationGuardTest {
 
     @RepeatedTest(100)
     void two_withdraw_will_be_processed_in_order() throws InterruptedException {
-        var executorService = Executors.newFixedThreadPool(2);
+        var executorService = Executors.newFixedThreadPool(50);
 
-        Runnable withdrawTask1 = () -> bankOperationGuard.withdraw("John", 500);
-        Runnable withdrawTask2 = () -> bankOperationGuard.withdraw("John", 400);
-
-
-        executorService.submit(withdrawTask1);
-        executorService.submit(withdrawTask2);
+        for (int i = 0; i < 500; i++) {
+            Runnable withdrawTask1 = () -> bankOperationGuard.withdraw("John", 1);
+            executorService.submit(withdrawTask1);
+        }
 
 
         executorService.shutdown();
@@ -57,7 +55,7 @@ public class BankOperationGuardTest {
 
         var finalBalance = bank.checkBalance("John");
 
-        assertEquals(100, finalBalance);
+        assertEquals(500, finalBalance);
     }
 
 }
